@@ -1,0 +1,246 @@
+/* the whole body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* the navbar header */
+nav {
+    background-color: white;
+    color: #252525;
+    padding: 0.7em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+}
+
+/* the LEFT side of the navbar (menu, info) */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+/* the text in the menu/info */
+/* .nav-left a { */
+#menu {
+    color: #252525;
+    text-decoration: none;
+    margin-right: 0.7em;
+    padding-left: 20px;
+    /* font-weight: bold; */
+    /* letter-spacing: 0.5px; */
+}
+
+/* the text 'MENU' has an underline underneath it */
+#menu {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* right side of the header */
+.nav-right span {
+    color: #252525;
+    text-decoration: none;
+    margin-right: 1em;
+    font-size: 0.9em;
+}
+
+/* centered main container */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5em;
+    padding-top: 3em;
+}
+
+/* 'hibachi' header */
+h1 {
+    color: #252525;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+/* list of menu items */
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+/* each item */
+.menu-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* #hibachi-chicken { */
+.menu-item {
+    text-decoration: none;
+}
+
+/* the food image */
+.food-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5em;
+}
+
+/* the logo */
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    /* padding: 0;
+    margin: 0; */
+}
+
+/* the food title AND the text */
+.item-details {
+    flex-grow: 1;
+    /* padding-right: 1em; */
+}
+
+/* the food title */
+.item-details h2 {
+    margin: 0 0 0.5em 0;
+    color: #393939;
+}
+
+/* the foot text */
+.item-details p {
+    margin: 0;
+    color: #6f6f6f;
+}
+
+/* price */
+.price {
+    color: #252525;
+    text-align: right;
+    margin-left: 1.5em;
+    margin-right: 1em;
+}
+
+/* looks exactly like the other buttons */
+.checkout-button {
+    position: fixed;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 25px;
+    border: 2px solid #252525;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;
+    background-color: #252525;
+    color: white;
+}
+
+.checkout-button:hover {
+    background-color: #474747;
+}
+
+
+/* login/signup */
+.nav-button {
+    padding: 0.75em 1.5em;
+    background-color: transparent;
+    color: #252525;
+    text-decoration: none;
+    font-size: 0.7em;
+    border-radius: 25px;
+    border: 2px solid #252525;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+/* login button */
+.login {
+    background-color: transparent;
+    color: #252525;
+    border: 1px solid #252525;
+}
+
+/* signup button */
+.signup {
+    background-color: #252525;
+    color: white;
+}
+
+
+
+
+
+.nav-button.logout {
+    padding: 0.75em 1.5em;
+    background-color: transparent;
+    color: #252525;
+    text-decoration: none;
+    font-size: 0.7em;
+    border-radius: 25px;
+    border: 2px solid #252525;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;
+
+    background-color: transparent;
+    color: #252525;
+    border: 1px solid #252525;
+}
+
+.nav-button.logout:hover {
+    background-color: #252525;
+    color: white;
+}
+
+
+/* .nav-button {
+    padding: 0.75em 1.5em;
+    background-color: transparent;
+    color: #252525;
+    text-decoration: none;
+    font-size: 0.7em;
+    border-radius: 25px;
+    border: 2px solid #252525;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;
+  }
+  .login {
+    background-color: transparent;
+    color: #252525;
+    border: 1px solid #252525;
+  }
+  .signup {
+    background-color: #252525;
+    color: white;
+  } */
+
+
+.checkout-button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}

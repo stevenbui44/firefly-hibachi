@@ -1,0 +1,122 @@
+main {
+    padding: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    background-color: white;
+    padding: 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #252525;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+h2 {
+    color: #252525;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.form-row {
+    display: flex;
+    gap: 3em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    flex: 1;
+}
+
+label {
+    color: grey;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #252525;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 1em 0;
+}
+
+
+
+
+.signup-btn {
+    padding: 0.75em 1.5em;
+    background-color: #252525;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+.signup-btn:hover {
+    background-color: #404040;
+}
+
+.login-link {
+    color: #252525;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #404040;
+    text-decoration: underline;
+}
+
+
+
+/* same css as login.css */
+.error-message {
+    display: none; 
+    color: red;
+    background-color: pink;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none;
+}
+.error-message.visible {
+    display: block;
+}

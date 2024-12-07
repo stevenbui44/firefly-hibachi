@@ -1,0 +1,128 @@
+/* the list of items */
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    /* margin-bottom: 2em; */
+}
+/* each item */
+.order-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* making each item a bit smaller than the menu item */
+.order-item .food-image {
+    width: 80px;
+    height: 80px;
+}
+
+.order-item h2 {
+    margin: 0;
+    font-size: 1.4em;
+    margin-bottom: 0.2em !important;
+}
+.order-item .quantity {
+    font-size: 0.9em;
+    color: #616161;
+}
+.order-item .price {
+    margin-right: 1.5em;
+    font-size: 1em;
+}
+
+.order-item .remove-btn {
+    background-color: #252525;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* sales tax and total */
+.order-summary {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
+
+.sales-tax {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    
+    font-weight: bold;
+    font-size: 1.2em;
+    border-top: 1px solid #9a9a9a;
+    padding-top: 0.5em;
+}
+
+.place-order {
+    display: flex;
+    justify-content: flex-end;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+ /* same style as the sign up button */
+.place-order-btn {
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 25px;
+    border: 2px solid #252525;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-left: 1em;
+    background-color: #252525;
+    color: white;
+}
+
+.place-order-btn:hover,
+.order-item .remove-btn:hover {
+    background-color: #474747;
+}
+
+
+.add-payment {
+    font-style: italic;
+    color: #252525;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding-right: 1.5em;
+}
+
+.add-payment:hover {
+    /* text-decoration: underline; */
+    color: #adadad;
+}
+
+
+
+
+
+/* empty cart */
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+    color: grey;
+    font-style: italic;
+}
+/* the place order button once we 'disable' it with href="#" */
+#place-order-btn[href='#'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

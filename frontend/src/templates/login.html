@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <link rel="manifest" href="../static/manifest.webmanifest">
+    <link rel="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-mobile-web-app-title" content="TeamZ">
+</head>
+
+<body>
+    <!-- SECTION 1: Navbar header -->
+    <nav>
+        <div class="nav-left">
+            <a href="./"><img src="../static/images/logo.jpg" alt="Wolf's Den Logo" class="logo"></a>
+            <a href="./menu" id="menu">MENU</a>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <div class="auth-buttons">
+                <a href="./login" class="nav-button login">Log In</a>
+                <a href="./signup" class="nav-button signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="login-container">
+            <h1>Log In</h1>
+
+            <!-- Error message, originally display: none -->
+            <div id="error-message" class="error-message"></div>
+
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <!-- <input type="email" id="email" placeholder="Enter your email" required> -->
+                    <input id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-btn">Log In</button>
+                <a href="/signup" class="signup-btn">Create New Account</a>
+            </form>
+        </div>
+    </main>
+</body>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/logout.js"></script>
+<script src="../static/js/common.js"></script>
+
+</html>

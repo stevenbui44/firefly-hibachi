@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "firstName": "Stu",
+        "lastName": "Dent",
+        "email": "student@gmail.com",
+        "password": "bce13a523e8c4b16d6b2001a12e25b04e99fcae05f2b26feeb1b6226e4cf38d5f5fe2c72c87a8ec9c7edf88d466bda9f34dca57e2cd76f4b3cb17bd310a244cd",
+        "salt": "8b72f5f17b6cec73ba3aa79bafd73305",
+        "nameOnCard": "Stu Dent",
+        "creditCardNumber": "1234123412341234",
+        "expirationDate": "11/25",
+        "cvv": "123"
+    }
+]

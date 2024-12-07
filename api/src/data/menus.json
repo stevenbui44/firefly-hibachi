@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Hibachi Chicken",
+        "description": "Teriyaki-glazed grilled chicken served alongside fried rice, noodles, and a medley of grilled zucchini and onions.",
+        "image": "static/images/hibachi-chicken.png",
+        "calories": 1000,
+        "price": 11.50
+    },
+    {
+        "id": 2,
+        "name": "Hibachi Steak",
+        "description": "Teriyaki-glazed flank steak, grilled to perfection, served with a trio of fried rice, noodles, and charred vegetables.",
+        "image": "static/images/hibachi-steak.png",
+        "calories": 1100,
+        "price": 13.25
+    },
+    {
+        "id": 3,
+        "name": "Hibachi Shrimp",
+        "description": "Teriyaki-glazed grilled shrimp, paired with golden fried rice, silky noodles, and fire-roasted zucchini and onions.",
+        "image": "static/images/hibachi-shrimp.png",
+        "calories": 1200,
+        "price": 12.50
+    },
+    {
+        "id": 4,
+        "name": "Hibachi Salmon",
+        "description": "Teriyaki-glazed grilled salmon fillet, served with aromatic fried rice, tender noodles, and a charred vegetable medley.",
+        "image": "static/images/hibachi-salmon.png",
+        "calories": 1300,
+        "price": 14.50
+    }
+]

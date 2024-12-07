@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Order</title>
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link rel="stylesheet" href="../static/css/preview-order.css">
+
+    <link rel="manifest" href="../static/manifest.webmanifest">
+    <link rel="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-mobile-web-app-title" content="TeamZ">
+</head>
+
+<body>
+    <!-- SECTION 1: Navbar header -->
+    <nav>
+        <div class="nav-left">
+            <a href="./"><img src="../static/images/logo.jpg" alt="Wolf's Den Logo" class="logo"></a>
+            <a href="./menu" id="menu">MENU</a>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <div class="auth-buttons">
+                <a href="./login" class="nav-button login">Log In</a>
+                <a href="./signup" class="nav-button signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Preview Order</h1>
+        <div class="order-items" id="order-items">
+
+            <!-- <div class="order-item">
+                <img src="static/images/hibachi-chicken.png" alt="Hibachi Chicken" class="food-image">
+                <div class="item-details">
+                    <h2>Hibachi Chicken</h2>
+                    <span class="quantity">Quantity: 1</span>
+                </div>
+                <span class="price">$11.50</span>
+                <button class="remove-btn">-</button>
+            </div>
+            
+            <div class="order-item">
+                <img src="static/images/hibachi-steak.png" alt="Hibachi Steak" class="food-image">
+                <div class="item-details">
+                    <h2>Hibachi Steak</h2>
+                    <span class="quantity">Quantity: 2</span>
+                </div>
+                <span class="price">$26.50</span>
+                <button class="remove-btn">-</button>
+            </div> -->
+
+        </div>
+
+        <!-- SECTION 4: Sales tax + Total -->
+        <div class="order-summary">
+            <div class="sales-tax">
+                <span>Sales Tax</span>
+                <span id="sales-tax">$0.00</span>
+            </div>
+            <div class="total">
+                <span>Total</span>
+                <span id="total">$0.00</span>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Place Order -->
+        <div class="place-order">
+            <a href="./order-placed" class="place-order-btn" id="place-order-btn">Place Order</a>
+        </div>
+    </main>
+</body>
+<script src="../static/js/logout.js"></script>
+<script src="../static/js/preview-order.js"></script>
+<script src="../static/js/common.js"></script>
+
+</html>

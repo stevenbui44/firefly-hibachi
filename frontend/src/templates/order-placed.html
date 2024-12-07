@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link rel="stylesheet" href="../static/css/order-placed.css">
+
+    <link rel="manifest" href="../static/manifest.webmanifest">
+    <link rel="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-mobile-web-app-title" content="TeamZ">
+</head>
+
+<body>
+    <!-- SECTION 1: Navbar header -->
+    <nav>
+        <div class="nav-left">
+            <a href="./"><img src="../static/images/logo.jpg" alt="Wolf's Den Logo" class="logo"></a>
+            <a href="./menu" id="menu">MENU</a>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <div class="auth-buttons">
+                <a href="./login" class="nav-button login">Log In</a>
+                <a href="./signup" class="nav-button signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SECTION 2: Order Placed + Pickup time -->
+        <div class="order-header">
+            <div class="order-confirmation">
+                <h1>Order Placed</h1>
+                <!-- <p class="pickup-info">Ready to be picked up at <b>12:30 pm</b> at 411 N Steven St #1, Richmond, VA 23220.</p> -->
+                <p class="pickup-info">Ready to be picked up at <b><span id="pickup-time"></span></b> at 411 N Steven St #1, Richmond, VA 23220.</p>
+            </div>
+            <div class="confirmation-logo">
+                <img src="static/images/logo.jpg" alt="Confirmation Logo" class="logo-image">
+            </div>
+        </div>
+
+        <div class="order-items">
+            <h2>Your Order</h2>
+            <div id="items-container"></div>
+
+            <!-- <div class="item">
+                <img src="static/images/hibachi-chicken.png" alt="Hibachi Chicken" class="food-image">
+                <div class="item-details">
+                    <h3>Hibachi Chicken</h3>
+                    <span class="quantity">Quantity: 1</span>
+                </div>
+            </div>
+            <div class="item">
+                <img src="static/images/hibachi-steak.png" alt="Hibachi Steak" class="food-image">
+                <div class="item-details">
+                    <h3>Hibachi Steak</h3>
+                    <span class="quantity">Quantity: 2</span>
+                </div>
+            </div> -->
+
+        </div>
+
+    </main>
+</body>
+<script src="../static/js/logout.js"></script>
+<script src="../static/js/order-placed.js"></script>
+<script src="../static/js/common.js"></script>
+
+
+</html>

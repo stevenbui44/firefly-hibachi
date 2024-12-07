@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/signup.css">
+
+    <!-- <link rel="manifest" href="./manifest.webmanifest"> -->
+    <link rel="manifest" href="../static/manifest.webmanifest">
+    <link rel="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-mobile-web-app-title" content="TeamZ">
+</head>
+
+<body>
+    <!-- SECTION 1: Navbar header -->
+    <nav>
+        <div class="nav-left">
+            <a href="./"><img src="../static/images/logo.jpg" alt="Wolf's Den Logo" class="logo"></a>
+            <a href="./menu" id="menu">MENU</a>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <div class="auth-buttons">
+                <a href="./login" class="nav-button login">Log In</a>
+                <a href="./signup" class="nav-button signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="signup-container">
+            <h1>Sign Up</h1>
+
+            <!-- error message, originally display: none -->
+            <div id="error-message" class="error-message"></div>
+            
+            <form class="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter first name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter last name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="divider"></div>
+
+                <h2>Payment Information</h2>
+                
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expDate">Expiration Date</label>
+                        <input type="text" id="expDate" placeholder="MM / YY" maxlength="5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="signup-btn">Create Account</button>
+                <a href="/login" class="login-link">Already have an account? Log in</a>
+            </form>
+        </div>
+    </main>
+</body>
+<script src="../static/js/logout.js"></script>
+<script src="../static/js/signup.js"></script>
+<script src="../static/js/common.js"></script>
+
+
+</html>

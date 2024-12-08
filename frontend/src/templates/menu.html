@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="../static/css/menu.css">
-
     <link rel="manifest" href="../static/manifest.webmanifest">
     <link rel="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-mobile-web-app-status-bar-style" content="white">
     <link rel="apple-mobile-web-app-title" content="TeamZ">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
 </head>
-
-<!-- https://order.toasttab.com/online/hibachi-box-411-n-harrison-st-gznwx -->
-<!-- I used to go to the website above when I used to intern at VCU over the summer
-     and order a Hibachi Steak like every week. We don't necessarily need to design
-     our project based on this website but it's what I'm using as a reference -->
 
 <body>
     <!-- SECTION 1: Navbar header -->
@@ -33,60 +30,10 @@
         </div>
     </nav>
 
-    <main>
-        <!-- SECTION 2: Hibachi -->
-        <h1>Hibachi</h1>
-        <div class="menu-items">
-            
-            <!-- <a href="./hibachi-chicken" class="menu-item" id="hibachi-chicken">
-                <img src="static/images/hibachi-chicken.png" alt="Hibachi Chicken" class="food-image">
-                <div class="item-details">
-                    <h2>Hibachi Chicken</h2>
-                    <p>Teriyaki-glazed grilled chicken served alongside fried rice, noodles, and a medley of grilled
-                        zucchini and onions.</p>
-                </div>
-                <span class="price">$11.50</span>
-            </a>
-            
-            <div class="menu-item">
-                <img src="static/images/hibachi-steak.png" alt="Hibachi Steak" class="food-image">
-                <div class="item-details">
-                    <h2>Hibachi Steak</h2>
-                    <p>Teriyaki-glazed flank steak, grilled to perfection, served with a trio of fried rice, noodles,
-                        and charred vegetables.</p>
-                </div>
-                <span class="price">$13.25</span>
-            </div>
-            
-            <div class="menu-item">
-                <img src="static/images/hibachi-shrimp.png" alt="Hibachi Shrimp" class="food-image">
-                <div class="item-details">
-                    <h2>Hibachi Shrimp</h2>
-                    <p>Teriyaki-glazed grilled shrimp, paired with golden fried rice, silky noodles, and fire-roasted
-                        zucchini and onions.</p>
-                </div>
-                <span class="price">$12.50</span>
-            </div>
-            
-            <div class="menu-item">
-                <img src="static/images/hibachi-salmon.png" alt="Hibachi Salmon" class="food-image">
-                <div class="item-details">
-                    <h2>Hibachi Salmon</h2>
-                    <p>Teriyaki-glazed grilled salmon fillet, served with aromatic fried rice, tender noodles, and a
-                        charred vegetable medley.</p>
-                </div>
-                <span class="price">$14.50</span>
-            </div> -->
+    <div id="menu-root"></div>
 
-        </div>
-
-        <!-- SECTION 3: Button to check out, fixed position -->
-        <a href="./preview-order" class="checkout-button" id="checkout-button">Check Out</a>
-
-    </main>
+    <script src="../static/js/logout.js"></script>
+    <script src="../static/js/menu.js" type="text/babel"></script>
+    <script src="../static/js/common.js"></script>
 </body>
-<script src="../static/js/logout.js"></script>
-<script src="../static/js/menu.js"></script>
-<script src="../static/js/common.js"></script>
-
 </html>

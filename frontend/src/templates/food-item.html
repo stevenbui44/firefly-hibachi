@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Item</title>
     <link rel="stylesheet" href="../static/css/menu.css">
     <link rel="stylesheet" href="../static/css/hibachi-chicken.css">
-
     <link rel="manifest" href="../static/manifest.webmanifest">
     <link rel="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-mobile-web-app-status-bar-style" content="white">
     <link rel="apple-mobile-web-app-title" content="TeamZ">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
 </head>
 
 <body>
@@ -29,46 +31,10 @@
         </div>
     </nav>
 
-    <main>
-        <!-- SECTION 2: The food details -->
-        <div class="food-item-details">
-            <!-- 2.1: Image on left side -->
-            <img id="food-image" src="" alt="" class="food-image">
-            <!-- 2.2: Details on right side -->
-            <div class="item-info">
-                <!-- 2.2.1: Title, calories, and price -->
-                <div class="item-header">
-                    <div class="item-title">
-                        <h1 id="food-name"></h1>
-                        <p class="calories"><span id="food-calories"></span> calories</p>
-                    </div>
-                    <p class="price">$<span id="food-price"></span></p>
-                </div>
-                <!-- 2.2.2: Description -->
-                <p id="food-description" class="description"></p>
-            </div>
-        </div>
+    <div id="food-item-root"></div>
 
-        <!-- SECTION 3: Quantity -->
-        <div class="quantity-section">
-            <label for="quantity">Quantity</label>
-            <div class="quantity-selector">
-                <input type="number" id="quantity" value="1" min="1" max="10">
-                <div class="quantity-controls">
-                    <button class="quantity-btn minus">-</button>
-                    <button class="quantity-btn plus">+</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 4: Add to Order -->
-        <div class="add-to-order">
-            <button class="add-to-order-btn">Add to Order</button>
-        </div>
-    </main>
+    <script src="../static/js/logout.js"></script>
+    <script src="../static/js/food-item.js" type="text/babel"></script>
+    <script src="../static/js/common.js"></script>
 </body>
-<script src="../static/js/logout.js"></script>
-<script src="../static/js/food-item.js"></script>
-<script src="../static/js/common.js"></script>
-
 </html>

@@ -1,80 +1,54 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // get the food item ID from the search param
-    const urlParams = new URLSearchParams(window.location.search);
-    const itemId = urlParams.get('id');
-    // if there is no ID, go to /menu instead of an empty template
-    if (!itemId) {
-        window.location.href = '/menu';
-        return;
-    }
+const FoodItemContent = () => {
+    const [foodItem, setFoodItem] = React.useState(null);
+    const [quantity, setQuantity] = React.useState(1);
 
-    const foodImage = document.getElementById('food-image');
-    const foodName = document.getElementById('food-name');
-    const foodCalories = document.getElementById('food-calories');
-    const foodPrice = document.getElementById('food-price');
-    const foodDescription = document.getElementById('food-description');
-    const quantityInput = document.getElementById('quantity');
-    const addToOrderBtn = document.querySelector('.add-to-order-btn');
-
-    // fetch(`https://csc342-526.csc.ncsu.edu/api/menu/${itemId}`, {
-    fetch(`http://localhost:80/api/menu/${itemId}`, {
-        credentials: 'include'
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Item not found');
-            }
-            return response.json();
-        })
-        .then(item => {
-            document.title = `${item.name}`;
-            foodImage.src = item.image;
-            foodImage.alt = item.name;
-            foodName.textContent = item.name;
-            foodCalories.textContent = item.calories;
-            // they wouldn't let me just have something like '$11.50'
-            foodPrice.textContent = item.price.toFixed(2);
-            foodDescription.textContent = item.description;
-            addToOrderBtn.dataset.itemId = item.id;
-        })
-        .catch(error => {
-            console.error('Error:', error);
+    React.useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get('id');
+        
+        if (!itemId) {
             window.location.href = '/menu';
-        });
-
-    // FUNCTION 1: Subtracting
-    document.querySelector('.minus').addEventListener('click', function() {
-        const currentValue = parseInt(quantityInput.value);
-        if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+            return;
         }
-    });
 
-    // FUNCTION 2: Adding
-    document.querySelector('.plus').addEventListener('click', function() {
-        const currentValue = parseInt(quantityInput.value);
-        if (currentValue < 10) {
-            quantityInput.value = currentValue + 1;
-        }
-    });
+        fetch(`http://localhost:80/api/menu/${itemId}`, {
+            credentials: 'include'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Item not found');
+                }
+                return response.json();
+            })
+            .then(item => {
+                setFoodItem(item);
+                document.title = item.name;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = '/menu';
+            });
+    }, []);
 
-    // FUNCTION 3: Manually changing quantity input
-    quantityInput.addEventListener('change', function() {
-        let value = parseInt(this.value);
-        // if negative OR non-numerical input (ex. 'e')
+    const handleQuantityChange = (e) => {
+        let value = parseInt(e.target.value);
         if (isNaN(value) || value < 1) {
-            this.value = 1;
+            value = 1;
         } else if (value > 10) {
-            this.value = 10;
+            value = 10;
         }
-    });
+        setQuantity(value);
+    };
 
-    // FUNCTION 4: Adding to the cart
-    addToOrderBtn.addEventListener('click', function() {
-        const quantity = parseInt(quantityInput.value);
-        const menuId = itemId;
+    const handleDecrease = () => {
+        setQuantity(prev => prev > 1 ? prev - 1 : 1);
+    };
 
-        // fetch('https://csc342-526.csc.ncsu.edu/api/cart/items', {
+    const handleIncrease = () => {
+        setQuantity(prev => prev < 10 ? prev + 1 : 10);
+    };
+
+    const handleAddToOrder = () => {
         fetch('http://localhost:80/api/cart/items', {
             method: 'POST',
             credentials: 'include',
@@ -82,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                menuId: menuId,
+                menuId: foodItem.id,
                 quantity: quantity
             })
         })
@@ -98,5 +72,60 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
         });
-    });
-});
+    };
+
+    if (!foodItem) return null;
+
+    return (
+        <main>
+            <div className="food-item-details">
+                <img 
+                    id="food-image" 
+                    src={foodItem.image} 
+                    alt={foodItem.name} 
+                    className="food-image" 
+                />
+                <div className="item-info">
+                    <div className="item-header">
+                        <div className="item-title">
+                            <h1 id="food-name">{foodItem.name}</h1>
+                            <p className="calories">
+                                <span id="food-calories">{foodItem.calories}</span> calories
+                            </p>
+                        </div>
+                        <p className="price">$<span id="food-price">{foodItem.price.toFixed(2)}</span></p>
+                    </div>
+                    <p id="food-description" className="description">{foodItem.description}</p>
+                </div>
+            </div>
+
+            <div className="quantity-section">
+                <label htmlFor="quantity">Quantity</label>
+                <div className="quantity-selector">
+                    <input 
+                        type="number" 
+                        id="quantity" 
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                        min="1" 
+                        max="10" 
+                    />
+                    <div className="quantity-controls">
+                        <button className="quantity-btn minus" onClick={handleDecrease}>-</button>
+                        <button className="quantity-btn plus" onClick={handleIncrease}>+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="add-to-order">
+                <button className="add-to-order-btn" onClick={handleAddToOrder}>
+                    Add to Order
+                </button>
+            </div>
+        </main>
+    );
+};
+
+// mount at food-item-root
+const root = ReactDOM.createRoot(document.getElementById('food-item-root'));
+root.render(<FoodItemContent />);

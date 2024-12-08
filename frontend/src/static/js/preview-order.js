@@ -1,39 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const orderItems = document.getElementById('order-items');
-    const salesTaxElement = document.getElementById('sales-tax');
-    const totalElement = document.getElementById('total');
-    // Sales tax
+const PreviewOrderContent = () => {
     const TAX_RATE = 0.0825;
+    const [orderItems, setOrderItems] = React.useState([]);
+    const [menuItems, setMenuItems] = React.useState([]);
+    const [salesTax, setSalesTax] = React.useState(0);
+    const [total, setTotal] = React.useState(0);
 
-    // FUNCTION 0.5: Formatting the item, sales, and total prices
-    function formatPrice(price) {
+    const formatPrice = (price) => {
         return `$${price.toFixed(2)}`;
-    }
+    };
 
-    // FUNCTION 1: Create div class="order-item"
-    function createOrderItemElement(item, menuItem) {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'order-item';
-        itemElement.innerHTML = `
-            <img src="${menuItem.image}" alt="${menuItem.name}" class="food-image">
-            <div class="item-details">
-                <h2>${menuItem.name}</h2>
-                <span class="quantity">Quantity: ${item.quantity}</span>
-            </div>
-            <span class="price">${formatPrice(menuItem.price * item.quantity)}</span>
-            <button class="remove-btn" data-item-id="${menuItem.id}">-</button>
-        `;
-        // FUNCTION 1.5: Remove from cart 
-        const removeBtn = itemElement.querySelector('.remove-btn');
-        removeBtn.addEventListener('click', function() {
-            removeFromCart(menuItem.id);
+    const calculateTotals = React.useCallback((items, menu) => {
+        let subtotal = 0;
+        items.forEach(item => {
+            const menuItem = menu.find(m => m.id === item.menuId);
+            if (menuItem) {
+                subtotal += menuItem.price * item.quantity;
+            }
         });
-        return itemElement;
-    }
 
-    // FUNCTON 2: Removing an item from the cart
-    function removeFromCart(menuId) {
-        // fetch(`https://csc342-526.csc.ncsu.edu/api/cart/items/${menuId}`, {
+        const tax = subtotal * TAX_RATE;
+        const total = subtotal + tax;
+
+        setSalesTax(tax);
+        setTotal(total);
+    }, []);
+
+    const removeFromCart = (menuId) => {
         fetch(`http://localhost:80/api/cart/items/${menuId}`, {
             method: 'DELETE',
             credentials: 'include'
@@ -45,86 +37,110 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(() => {
-            // UPDATE the cart
             loadCart();
         })
         .catch(error => {
             console.error('Error:', error);
         });
-    }
+    };
 
-    // FUNCTION 3: Calculating the sales tax and total
-    function calculateTotals(items, menuItems) {
-        let subtotal = 0;
+    const loadCart = React.useCallback(() => {
+        fetch('http://localhost:80/api/cart', {
+            credentials: 'include'
+        })
+            .then(response => response.json())
+            .then(cart => {
+                const items = cart.items || [];
+                setOrderItems(items);
+                if (menuItems.length > 0) {
+                    calculateTotals(items, menuItems);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [menuItems, calculateTotals]);
 
-        // Step 1: Calculate the regular items
-        items.forEach(item => {
-            const menuItem = menuItems.find(m => m.id === item.menuId);
-            if (menuItem) {
-                subtotal += menuItem.price * item.quantity;
-            }
-        });
-
-        // Step 2: Calculate the sales tax
-        const salesTax = subtotal * TAX_RATE;
-
-        // Step 3: Calculate the total
-        const total = subtotal + salesTax;
-
-        salesTaxElement.textContent = formatPrice(salesTax);
-        totalElement.textContent = formatPrice(total);
-    }
-
-    // FUNCTION 4: Loading/updating the user's cart
-    // No lie. This is going to look mostly the same as order-placed.js
-    function loadCart() {
-        // Step 1: Get the entire MENU first 
-        // fetch('https://csc342-526.csc.ncsu.edu/api/menu', {
+    React.useEffect(() => {
         fetch('http://localhost:80/api/menu', {
             credentials: 'include'
         })
             .then(response => response.json())
-            .then(menuItems => {
-
-                // Step 2: Get the CART
-                // fetch('https://csc342-526.csc.ncsu.edu/api/cart', {
-                fetch('http://localhost:80/api/cart', {
-                    credentials: 'include'
-                })
-                    .then(response => response.json())
-                    .then(cart => {
-                        orderItems.innerHTML = '';
-    
-                        // Step 2.5: Check if the cart is empty
-                        if (!cart.items || cart.items.length === 0) {
-                            orderItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-                            salesTaxElement.textContent = '$0.00';
-                            totalElement.textContent = '$0.00';
-                            const placeOrderLink = document.getElementById('place-order-btn');
-                            placeOrderLink.href = '#';
-                            return;
-                        }
-
-    
-                        // Step 3: Add each cart item from the CART to the container
-                        cart.items.forEach(item => {
-                            const menuItem = menuItems.find(m => m.id === item.menuId);
-                            if (menuItem) {
-                                const itemElement = createOrderItemElement(item, menuItem);
-                                orderItems.appendChild(itemElement);
-                            }
-                        });
-    
-                        // Step 4: Calculate totals
-                        calculateTotals(cart.items, menuItems);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+            .then(items => {
+                setMenuItems(items);
+                // After getting menu items, load cart
+                loadCart();
             })
             .catch(error => {
                 console.error('Error loading menu items:', error);
             });
-    }
-    loadCart();
-});
+    }, [loadCart]);
+
+    React.useEffect(() => {
+        if (menuItems.length > 0 && orderItems.length > 0) {
+            calculateTotals(orderItems, menuItems);
+        }
+    }, [orderItems, menuItems, calculateTotals]);
+
+    const OrderItem = ({ item }) => {
+        const menuItem = menuItems.find(m => m.id === item.menuId);
+        if (!menuItem) return null;
+
+        return (
+            <div className="order-item">
+                <img src={menuItem.image} alt={menuItem.name} className="food-image" />
+                <div className="item-details">
+                    <h2>{menuItem.name}</h2>
+                    <span className="quantity">Quantity: {item.quantity}</span>
+                </div>
+                <span className="price">{formatPrice(menuItem.price * item.quantity)}</span>
+                <button 
+                    className="remove-btn" 
+                    onClick={() => removeFromCart(menuItem.id)}
+                >
+                    -
+                </button>
+            </div>
+        );
+    };
+
+    return (
+        <main>
+            <h1>Preview Order</h1>
+            <div className="order-items" id="order-items">
+                {orderItems.length === 0 ? (
+                    <p className="empty-cart">Your cart is empty</p>
+                ) : (
+                    orderItems.map((item, index) => (
+                        <OrderItem key={index} item={item} />
+                    ))
+                )}
+            </div>
+
+            <div className="order-summary">
+                <div className="sales-tax">
+                    <span>Sales Tax</span>
+                    <span id="sales-tax">{formatPrice(salesTax)}</span>
+                </div>
+                <div className="total">
+                    <span>Total</span>
+                    <span id="total">{formatPrice(total)}</span>
+                </div>
+            </div>
+
+            <div className="place-order">
+                <a 
+                    href={orderItems.length > 0 ? "./order-placed" : "#"} 
+                    className="place-order-btn" 
+                    id="place-order-btn"
+                >
+                    Place Order
+                </a>
+            </div>
+        </main>
+    );
+};
+
+// mount to preview-order-root
+const root = ReactDOM.createRoot(document.getElementById('preview-order-root'));
+root.render(<PreviewOrderContent />);

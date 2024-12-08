@@ -1,78 +1,26 @@
-# Final Team Project
+# Firefly Hibachi
 
-## [Project Title]
+## Features
 
-## Progress Report
+- **User Registration and Authentication**: Secure user signup and login functionality with cookie-based session management for resource access control
+- **Input Validation**: Client-side and server-side validation for user registration fields and payment data
+- **Client-Side Dynamic Loading**: Dynamically loads/updates menu, cart, and orders with JavaScript
+- **Shopping Cart System**: Allows adding items to a cart and previewing/updating cart before checkout
+- **Offline Mode**: Displays custom offline screen or cached content when offline
+- **Caching**: Uses a network-first caching strategy to retrieve cached content for offline access
+- **Installability**: Allows users to install application and access it like a native app
+- **Middleware**: Redirects unauthorized users to login page to reinforce resource access control
+- **Database Integration**: Runs SQL queries to MySQL database for CRUD operations on users, menu items, and orders
+- **Docker Containerization**: Packages application into Docker containers for consistent deployment
+- **Responsive Design**: Implements mobile-first design principles with Bootstrap and media queries
 
-### Completed Features
+## Tech Stack
 
-* Feature 1
-* Feature 2
-* ...
+- **Backend**: Node.js, Express.js
+- **Frontend**: JavaScript, HTML, CSS, Bootstrap
+- **Database**: MySQL
+- **Deployment**: Docker
 
-### Known Issues & Limitations
+## Installation
 
-* Problem A
-* Problem B
-* ...
-
-
-## Authentication & Authorization
-
-<!-- Describe your authentication and authorization processes. What techniques are you using? What data is being stored where and how? How do you now it's secure? How are you making sure users only access what they are allowed to? -->
-
-## PWA Capabilities
-
-<!-- Describe features available to your users offline, caching strategy, installability, theming, etc. -->
-
-
-## API Documentation
-
-Method | Route                 | Description
------- | --------------------- | ---------
-`POST` | `/login`              | Receives an email and password
-`POST` | `/logout`             | Log out the current user
-`POST` | `/register`           | Creates a new user account and returns the new user object
-`GET`  | `/users`              | Retrieves an array of all active users in the system
-`GET`  | `/users/:userId`      | Retrieves a user by its Id
-...    | ...                   | ...
-
-
-## Database ER Diagram
-
-```markdown
-
-Use this syntax to embed an image in your markdown file:
-
-![](images/erd.png)
-```
-
-
-
-## Team Member Contributions
-
-#### [Name of Team Member 1]
-
-* Contribution 1
-* Contribution 2
-* ...
-
-#### [Name of Team Member 2]
-
-* Contribution 1
-* Contribution 2
-* ...
-
-#### [Name of Team Member 3]
-
-* Contribution 1
-* Contribution 2
-* ...
-
-#### Milestone Effort Contribution
-
-<!-- Must add to 100% -->
-
-Team Member 1 | Team Member 2 | Team Member 3
-------------- | ------------- | --------------
-X%            | Y%            | Z%
+## Usage

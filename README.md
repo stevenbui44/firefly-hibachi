@@ -23,4 +23,41 @@
 
 ## Installation
 
+1. Ensure that you have the following prerequisites installed:
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Docker
+- MySQL Workbench
+
+2.  Clone the repository:
+```
+git clone https://github.com/stevenbui44/firefly-hibachi.git
+```
+
+3. Install dependencies
+```
+npm install
+```
+
+4. Configure environment variables in .env
+```
+
+MYSQL_ROOT_PASSWORD=[...]
+MYSQL_DATABASE=[...]
+MYSQL_USER=[...]
+MYSQL_PASSWORD=[...]
+
+DB_ENGINE=mysql
+DB_PORT=3306
+DB_CHARSET=utf8mb4
+```
+
+5. On MySQL Workbench, create a new MySQL connection with port 3307 and the database name/user specified above
+
+6. Run the application
+```
+docker compose down
+docker compose up
+```
+
 ## Usage

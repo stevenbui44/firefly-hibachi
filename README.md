@@ -17,7 +17,7 @@
 ## Tech Stack
 
 - **Backend**: Node.js, Express.js
-- **Frontend**: JavaScript, HTML, CSS, Bootstrap
+- **Frontend**: JavaScript, ReactJS, HTML, CSS, Bootstrap
 - **Database**: MySQL
 - **Deployment**: Docker
 

@@ -61,3 +61,21 @@ docker compose up
 ```
 
 ## Usage
+
+1. Open the application in localhost:3000
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/95b6ecc8-7a15-4a93-afb6-33c5458ac451">
+
+2. Select Order Now to view the restaurant's menu
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/66e3fd61-c801-48d1-82e6-751745e10b76">
+
+3. Sign up / log in to be able to place orders
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/23c55ac0-6830-44d0-af4c-f3b8017704b4">
+
+4. Select any food item to review it and add to the cart
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/295554fb-2add-4c74-922d-f1c5275f4090">
+
+5. Press Check Out to preview your order
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/213d1f30-23aa-44c2-875b-e81bfed786cd">
+
+6. Place your order!
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/916434ac-812a-4f62-884f-aa9658d09faa">
